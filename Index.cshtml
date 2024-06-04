@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <h1>Welcome</h1>
+    <p>Please enter your Name:</p>
+    <form name="NameForm" id="NameForm" method="post">
+        Name:
+        <br />
+        <input name="Name" type="text" class="form-control input-lg" autofocus required />
+        <br />
+        Mobile:
+        <br />
+        <input name="Mobile" type="text" class="form-control input-lg" required />
+        <br />
+        Address:
+        <br />
+        <input name="Address" type="text" class="form-control input-lg" required />
+        <br />
+        <input id="SaveButton" type="submit" value="Save" class="btn btn-info" />
+        <input id="SaveButton" type="submit" value="Delete" class="btn btn-info" />
+    </form>
+</div>
+
+
+
+<br />
+
+<from name ="NameForm" method="get">
+    <input id="showButton " tybe="submit" value="Show" class="btn btn-info"/>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Address</th>
+        </tr>
+
+        @foreach (System.Data.DataRow row in Model.Persons.Tables[0].Rows)
+        {
+            
+        <tr>
+
+            <td>@row["Name"]</td>
+                <td>@row["Mobile"]</td>
+                <td>@row["Address"]</td>
+        </tr>
+        
+        
+        }
+
+
+
+
+    </table>
+    </from>
